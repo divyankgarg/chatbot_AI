@@ -32,37 +32,40 @@ for intent in data['intents']:
         
     if intent['tag'] not in labels:
         labels.append(intent['tag'])
-print("list of all tags based on length of patterns")
+print("docs_y: list of all tags based on length of patterns")
 print(docs_y)
 print(len(docs_y))
 print(" ")
 
-print("list of all pattern combine to one ")
+print("docs_x:list of all pattern combine to one ")
 print(docs_x)
 print(len(docs_x))
 print(" ")
 
-print("list of all pattern tokenize to one complete list")
+print("words: list of all pattern tokenize to one complete list")
 print(words)
 print(len(words))
 print(" ")
 
-print("list of all tags tokenize to one complete list")
+print("labels: list of all tags tokenize to one complete list")
 print(labels)
 print(len(labels))
 
 words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+print("stem words")
+print(words)
+print(len(words))
 words = sorted(list(set(words)))
 
 labels = sorted(labels)
 
 print(" ")
-print("list of all pattern stemmed to one complete list")
+print("words:list of all pattern stemmed and unique to one complete list")
 print(words)
 print(len(words))
 print(" ")
 
-print("list of all tags stemmed to one complete list")
+print("labels:list of all tags stemmed and uniqe to one complete list")
 print(labels)
 print(len(labels))
 
@@ -87,13 +90,22 @@ for x, doc in enumerate(docs_x):
 
     training.append(bag)
     output.append(output_row)
+
 print(" ")
-print("BOW of each words in pattern (docs_x) (as sentence) vs individual stemmed pattern words (words) (as to check frequency) ")
+print("out_empty")
+print(out_empty)
+
+print(" ")
+print("output_row")
+print(output_row)
+
+print(" ")
+print("training: BOW of each words in pattern (docs_x) (as sentence) vs individual stemmed pattern words (words) (as to check frequency) ")
 print(training)
 print(len(training))
 
 print(" ")
-print("BOW of each words in tags (docs_y) (as sentence) vs individual stemmed pattern words (labels) (as to check frequency) ")
+print("output: BOW of each words in tags (docs_y) (as sentence) vs individual stemmed pattern words (labels) (as to check frequency) ")
 print(output)
 print(len(output))
 
@@ -143,4 +155,4 @@ def chat():
 
         print(random.choice(responses))
 
-chat()
+chat() 
